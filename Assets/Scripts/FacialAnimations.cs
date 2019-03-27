@@ -32,22 +32,40 @@ public class FacialAnimations : MonoBehaviour
     public double max;
     public string strongestEmotion;
     public ExampleToneAnalyzer.Example analyzer = new ExampleToneAnalyzer.Example();
-    public string[] happinessWords;
-    public string[] sadnessWords;
-    public string[] shockWords;
+    public string[] wordList;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        happinessWords = new string[] { "happy", "enjoy", "joy", "good", "thanks", "laugh", "cheers", "cheerful",
-            "nice", "wonderful", "exciting", "beautiful", "cheerful", "enjoyable", "amazing", "funny", "grateful", "lucky", "awesome"};
-        sadnessWords = new string[] { "sorry", "unhappy", "blue", "melancholy", "wistful",
-            "homesick", "awful", "sad", "sadness", "suicidal", "uneasy", "easy", "disappointed", "disappointing",
-            "regretful", "depressed", "depression", "depressing", "upset", "worried", "hopeless", "dolorous", "dark", "regretful", "regret", "helpless" };
-        shockWords = new string[] {"fear", "shocked", "scared", "terrified", "terrify", "scary" };
+        wordList = new string[] { "peaceful", "calm", "understanding", "happy", "enjoy", "joy", "good", "thank", "laugh", "cheer",
+            "nice", "wonder", "excit", "beaut", "cheer", "confident", "enjoy", "amazing", "funny", "grateful", "lucky", "awesome",
+            "sorry", "unhappy", "blue", "melanchol", "wistful", "fear", "shock", "scare", "terrif", "scary", "horrif", "horrible",
+            "homesick", "awful", "sad", "suicidal", "easy", "disappointed", "disappointing","comfort" , "please", "encourage","clever" ,
+            "regretful", "depressed", "depression", "depressing", "upset", "worried", "dolorous", "dark", "regretful", 
+            "regret", "helpless","surprised", "content", "quiet", "certain", "quiet", "relax", "free", "bright", "reassured",
+            "amaze", "loving", "affection", "sens", "tender", "warm", "attract", "love", "keen", "eager", "attract", "touch", "admir",
+            "curious", "bold", "brave", "hope", "sure", "unique", "secure", "secur", "irrit", "bitter", "offen", "annoy", "skept", "shy",
+            "doubt", "trag", "pess", "dull", "neuteral", "weary", "panic", "anxi", "reject", "weary", "reserved", "bored", "cold", "life",
+            "suspicious", "nervous", "frighten", "timid", "shaky", "rest", "threat", "quake", "menace", "wary", "crush", "pain", "torture",
+            "aching", "ache", "injure", "desparate", "humili", "wrong", "heartbroken", "agonize", "coward", "injur", "afflict", "appal", 
+            "alien", "stress","tear", "sorrow", "grief", "anguis", "desolat", "lone" , "grieved", "mourn", "dismayed", "hurt", "thrill",
+            "serene", "bright", "bless", "glad", "kind", "rely", "reliable", "recept", "accept", "elate", "provoc", "impuls", "anima",
+            "ease", "bright", "concern", "terrible", "trouble", "angry", "anger", "truth", "measure", "trust", "calculat", "jealous",
+            "affect", "care", "susp", "believe", "common", "hesit"};
+
         activeTalk = true;
 
+        string test = "uncertain";
+        for (int i = 0; i < wordList.Length; i++)
+        {
+            //print(TextToAnalyze1.text);
+            if (test.Contains(wordList[i]))
+            {
+                print("Contains");
+            }
+        }
         //InvokeRepeating("TriggerTalk", 0.0f, 0.001f);
         oldTextChanged = EmotionResults.text;
         //analyzer = JsonUtility.FromJson<ExampleToneAnalyzer.Example>("{\"document_tone\":{\"tones\":[{\"score\":0.880435,\"tone_id\":\"joy\",\"tone_name\":\"Joy\"},{\"score\":0.946222,\"tone_id\":\"tentative\",\"tone_name\":\"Tentative\"}]}}");
@@ -203,44 +221,48 @@ public class FacialAnimations : MonoBehaviour
         //}
         //print(analyzer.document_tone.tones.Length);
 
-        /*for (int i = 0; i < shockWords.Length; i++){
-            //print(TextToAnalyze1.text);
-            if (TextToAnalyze1.text.Contains(shockWords[i]))
-            {
-                sendableString = true;
-            }
-        }*/
+
 
 
         /*if(sendableString){
-            print("Sendable state " + sendableString);
+
         }*/
+        print("Sendable state " + sendableString);
 
 
-
-        if (oldTextChanged != textChanged && EmotionResults.text != "Watson Tone Analyzer") //&& sendableString == true)
+        if (oldTextChanged != textChanged && EmotionResults.text != "Watson Tone Analyzer")
         {
-            //System.Threading.Thread.Sleep(3000);
-            print("JSON IS READY");
-            analyzer = JsonUtility.FromJson<ExampleToneAnalyzer.Example>(EmotionResults.text);
-            analyzeFlag = false;
-            smileFlag = false;
-            sadFlag = false;
-            tentativeFlag = false;
-            mildSmileFlag = false;
-            angerFlag = false;
             sendableString = false;
-            EmotionResults.text = "";
-            oldTextChanged = textChanged;
-        }
+            for (int i = 0; i < wordList.Length; i++)
+            {
+                //print(TextToAnalyze1.text);
+                if (TextToAnalyze1.text.Contains(wordList[i]))
+                {
+                    sendableString = true;
+                }
+            }
 
+            if (sendableString){
+                print("JSON IS READY");
+                analyzer = JsonUtility.FromJson<ExampleToneAnalyzer.Example>(EmotionResults.text);
+                analyzeFlag = false;
+                smileFlag = false;
+                sadFlag = false;
+                tentativeFlag = false;
+                mildSmileFlag = false;
+                angerFlag = false;
+                //sendableString = false;
+                //EmotionResults.text = "";
+            }
+        }
+        oldTextChanged = textChanged;
 
 
         //print("HEY THE LENGTH IS: " + analyzer.document_tone.tones.Length );
         //if (analyzer.document_tone.tones.Length > 0 && analyzeFlag == false)
-        if (analyzeFlag == false && analyzer != null)
+        if (analyzeFlag == false && analyzer != null && analyzer.document_tone.tones.Length > 0 && sendableString)
         {
-            print("IFS PASSED");
+            print("ANALYZE FLAG FALSE");
             for (int j = 0; j < analyzer.document_tone.tones.Length; j++)
             {
                 print("HEY THE LENGTH IS: " + analyzer.document_tone.tones.Length);
@@ -311,7 +333,9 @@ public class FacialAnimations : MonoBehaviour
 
             max = 0;
             strongestEmotion = "";
+            print("ANALYZE FLAG True");
             analyzeFlag = true;
+
         }
         /*if (activeTalk != true)
         {
