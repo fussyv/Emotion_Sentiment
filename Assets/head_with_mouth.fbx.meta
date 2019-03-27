@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 106e313be9d35471081610aed06acf50
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: _Head
+    100002: bqb
+    100004: Camera
+    100006: Camera.001
+    100008: Camera.002
+    100010: Camera.003
+    100012: //RootNode
+    100014: Lamp
+    100016: Lamp.001
+    100018: Lamp.002
+    100020: Lamp.003
+    100022: Liam_Hair
+    100024: Liam_Hair_A
+    100026: Liam_Hair_B
+    100028: Liam_Hair_C
+    100030: Liam_Hair_D
+    100032: Liam_Hair_E
+    100034: Liam_Hair_F
+    100036: Sphere
+    100038: Sphere.001
+    400000: _Head
+    400002: bqb
+    400004: Camera
+    400006: Camera.001
+    400008: Camera.002
+    400010: Camera.003
+    400012: //RootNode
+    400014: Lamp
+    400016: Lamp.001
+    400018: Lamp.002
+    400020: Lamp.003
+    400022: Liam_Hair
+    400024: Liam_Hair_A
+    400026: Liam_Hair_B
+    400028: Liam_Hair_C
+    400030: Liam_Hair_D
+    400032: Liam_Hair_E
+    400034: Liam_Hair_F
+    400036: Sphere
+    400038: Sphere.001
+    2000000: Camera
+    2000002: Camera.001
+    2000004: Camera.002
+    2000006: Camera.003
+    2100000: Eyebrows
+    2100002: Liam_Mat
+    2100004: Mouth
+    2300000: Liam_Hair
+    2300002: Liam_Hair_A
+    2300004: Liam_Hair_B
+    2300006: Liam_Hair_C
+    2300008: Liam_Hair_D
+    2300010: Liam_Hair_E
+    2300012: Liam_Hair_F
+    2300014: Sphere
+    2300016: Sphere.001
+    3300000: Liam_Hair
+    3300002: Liam_Hair_A
+    3300004: Liam_Hair_B
+    3300006: Liam_Hair_C
+    3300008: Liam_Hair_D
+    3300010: Liam_Hair_E
+    3300012: Liam_Hair_F
+    3300014: Sphere
+    3300016: Sphere.001
+    4300000: Sphere
+    4300002: bqb
+    4300004: Liam_Hair
+    4300006: Liam_Hair_A
+    4300008: Liam_Hair_B
+    4300010: Liam_Hair_C
+    4300012: Liam_Hair_D
+    4300014: Liam_Hair_F
+    4300016: Liam_Hair_E
+    4300018: Sphere.001
+    9500000: //RootNode
+    10800000: Lamp
+    10800002: Lamp.001
+    10800004: Lamp.002
+    10800006: Lamp.003
+    13700000: bqb
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
