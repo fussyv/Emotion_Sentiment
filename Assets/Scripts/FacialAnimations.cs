@@ -52,8 +52,9 @@ public class FacialAnimations : MonoBehaviour
             "aching", "ache", "injure", "desparate", "humili", "wrong", "heartbroken", "agonize", "coward", "injur", "afflict", "appal", 
             "alien", "stress","tear", "sorrow", "grief", "anguis", "desolat", "lone" , "grieved", "mourn", "dismayed", "hurt", "thrill",
             "serene", "bright", "bless", "glad", "kind", "rely", "reliable", "recept", "accept", "elate", "provoc", "impuls", "anima",
-            "ease", "bright", "concern", "terrible", "trouble", "angry", "anger", "truth", "measure", "trust", "calculat", "jealous",
-            "affect", "care", "susp", "believe", "common", "hesit"};
+            "ease", "bright", "concern", "terrible", "trouble", "angry", "anger", "truth", "measure", "calculat", "jealous",
+            "affect", "care", "susp", "believe", "common", "hesit", "aweful", "hard", "difficult", "complicated", "great", "cool",
+            "heart", "flatter", "damn", "bor", "really", "hate" , "no", "yes" };
 
         activeTalk = true;
 
@@ -221,9 +222,6 @@ public class FacialAnimations : MonoBehaviour
         //}
         //print(analyzer.document_tone.tones.Length);
 
-
-
-
         /*if(sendableString){
 
         }*/
@@ -251,16 +249,17 @@ public class FacialAnimations : MonoBehaviour
                 tentativeFlag = false;
                 mildSmileFlag = false;
                 angerFlag = false;
+                shockFlag = false;
                 //sendableString = false;
                 //EmotionResults.text = "";
-            }
+}
         }
         oldTextChanged = textChanged;
 
 
         //print("HEY THE LENGTH IS: " + analyzer.document_tone.tones.Length );
         //if (analyzer.document_tone.tones.Length > 0 && analyzeFlag == false)
-        if (analyzeFlag == false && analyzer != null && analyzer.document_tone.tones.Length > 0 && sendableString)
+        if (analyzeFlag == false && analyzer != null && analyzer.document_tone.tones.Length > 0 && sendableString && TextToAnalyze1.text.Length < 20)
         {
             print("ANALYZE FLAG FALSE");
             for (int j = 0; j < analyzer.document_tone.tones.Length; j++)
@@ -284,8 +283,8 @@ public class FacialAnimations : MonoBehaviour
                 InvokeRepeating("TriggerSmile", 0.0f, 0.001f);
                 activeTalk = false;
                 smileFlag = true;
-
             }
+
             if (strongestEmotion == "Sadness" && sadFlag != true)
             {
                 CancelInvoke("TriggerTalk");
@@ -293,6 +292,7 @@ public class FacialAnimations : MonoBehaviour
                 activeTalk = false;
                 sadFlag = true;
             }
+
             if (strongestEmotion == "Fear" && shockFlag != true)
             {
                 CancelInvoke("TriggerTalk");
@@ -300,6 +300,7 @@ public class FacialAnimations : MonoBehaviour
                 activeTalk = false;
                 shockFlag = true;
             }
+
             if (strongestEmotion == "Analytical" && tentativeFlag != true)
             {
                 CancelInvoke("TriggerTalk");
@@ -307,6 +308,7 @@ public class FacialAnimations : MonoBehaviour
                 activeTalk = false;
                 tentativeFlag = true;
             }
+
             if (strongestEmotion == "Confident" && mildSmileFlag != true)
             {
                 CancelInvoke("TriggerTalk");
@@ -314,6 +316,7 @@ public class FacialAnimations : MonoBehaviour
                 activeTalk = false;
                 mildSmileFlag = true;
             }
+
             if (strongestEmotion == "Tentative" && mildSmileFlag != true)
             {
                 CancelInvoke("TriggerTalk");
@@ -323,6 +326,7 @@ public class FacialAnimations : MonoBehaviour
                 activeTalk = false;
                 mildSmileFlag = true;
             }
+
             if (strongestEmotion == "Anger" && angerFlag != true)
             {
                 CancelInvoke("TriggerTalk");
@@ -335,13 +339,12 @@ public class FacialAnimations : MonoBehaviour
             strongestEmotion = "";
             print("ANALYZE FLAG True");
             analyzeFlag = true;
-
         }
-        /*if (activeTalk != true)
+        if (activeTalk != true)
         {
             //InvokeRepeating("TriggerTalk", 1.5f, 0.001f);
             activeTalk = true;
-        }*/
+        }
        // }
     }
 
